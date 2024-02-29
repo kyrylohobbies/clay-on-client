@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #eee;
+    background-image: url("https://res.cloudinary.com/dmtjposo5/image/upload/v1709223524/clay-on/images/static/xirgt2qkrbtv6xpan2kl.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main {
+    color: white;
+    flex: 1 0 auto;
+}
+
+.map {
+	width: 80%;
+	aspect-ratio: 4/3;
+	border-radius: 12px;
+	border: 0;
+    display:block;
+    margin: auto;
+}
+
+.darken-bg {
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.sample-img {
+    max-width: 100%;
+}
+
+.big {
+    font-size: larger;
+}
+
+.carousel {
+    min-height: fit-content;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.alt-color {
+    background-color: white;
+    color: black;
+    opacity: 0.9;
+}
+
+.py {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
