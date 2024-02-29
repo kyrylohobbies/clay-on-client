@@ -71,8 +71,12 @@
             '/contact' : contact
         };
         $(document).ready(function(){
-            $('#root').html(routes[window.location.pathname]);
+            const root = $('#root');
+            $(root).html(routes[window.location.pathname]);
             $('.sidenav').sidenav({ edge: 'right' });
+        });
+
+        function setupCarousel(){
             $('.carousel').carousel();              
             $('.carousel.carousel-slider').carousel({
                 fullWidth: true,
@@ -91,19 +95,32 @@
                     });
                 }
             });
-        });
+        };
 
         const route = (event) => {
             event = event || window.event;
-            console.log('in hereee');
             event.preventDefault();
             window.history.pushState({}, "", event.target.href);
-            $('#root').html(routes[window.location.pathname]);
+            $(root).html(routes[window.location.pathname]);
+            if(/sidenav/.test(event.target.parentElement.parentElement.className)) {
+                $('.sidenav').sidenav('close');
+            }
         };
 
         window.onpopstate = () => {
-            $('#root').html(routes[window.location.pathname]);
+            $(root).html(routes[window.location.pathname]);
         };
+
+        const config = { childList: true };
+        function callback(mutations, observer){
+            if(mutations.some((mutation)=>mutation.type === 'childList')){
+                if(window.location.pathname==='/other'){
+                    setupCarousel();
+                }
+            }
+        };
+        const observer = new MutationObserver(callback);
+        observer.observe(root, config);
     </script>
 </body>
 </html>
