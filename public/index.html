@@ -71,9 +71,6 @@
             '/contact' : contact
         };
         $(document).ready(function(){
-            //console.log($('#root').attr('data-item'));
-            console.log("Document Ready");
-            //$('#root').html(navMap.get($('#root').attr('data-item')));
             $('#root').html(routes[window.location.pathname]);
             $('.sidenav').sidenav({ edge: 'right' });
             $('.carousel').carousel();              
@@ -106,8 +103,7 @@
 
         window.onpopstate = () => {
             $('#root').html(routes[window.location.pathname]);
-        }
-
+        };
     </script>
 </body>
 </html>
